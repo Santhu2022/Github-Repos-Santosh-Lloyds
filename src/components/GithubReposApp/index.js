@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Loader from 'react-loader-spinner'
 import RepoItem from '../RepoItem'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
@@ -6,8 +6,8 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import './index.css'
 
 const GithubReposApp = () => {
-  const [reposList, setReposList] = useState([])
-  const [showLoader, setShowLoader] = useState(true)
+  const [reposList, setReposList] = React.useState([])
+  const [showLoader, setShowLoader] = React.useState(true)
 
   const getUpdatedParsedData = data =>
     data.map(each => ({
@@ -27,9 +27,9 @@ const GithubReposApp = () => {
     const accessToken = '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'
     const options = {
       method: 'GET',
-      headers: {
-        Authorization: `token ${accessToken}`,
-      },
+      // headers: {
+      //   Authorization: `token ${accessToken}`,
+      // },
     }
 
     try {
@@ -43,7 +43,7 @@ const GithubReposApp = () => {
     }
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     getRepos()
   }, [])
 
